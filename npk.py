@@ -3,7 +3,7 @@ from cffi import FFI
 
 
 ffi = FFI()
-ffi.cdef(open('npk/npk.h').read())
+ffi.cdef(open('npk.h').read())
 c = ffi.dlopen('/usr/local/lib/libnpk.dylib')
 
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+from __future__ import with_statement
 import os.path
 import re
 from setuptools import find_packages, setup
@@ -31,8 +31,8 @@ classifiers = [
 setup(
     name='pynpk',
     version='0.1.0',
-    #py_modules=['npk'],
     package=find_packages(),
+    include_package_files=True,
     author='Park Hyunwoo',
     author_email='ez.amiryo' '@' 'gmail.com',
     maintainer='Park Hyunwoo',
