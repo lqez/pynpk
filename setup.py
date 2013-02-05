@@ -1,15 +1,23 @@
 #!/usr/bin/env python
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup  # NOQA
 import os.path
+import re
+from setuptools import find_packages, setup
+from setuptools.command.test import test
 
 try:
     with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
         requirements = [i for i in f if not i.startswith('#')]
 except IOError:
     requirements = []
+
+# use pytest instead
+def run_tests(self):
+    pyc = re.compile(r'\.pyc|\$py\.class')
+    test_file = pyc.sub('.py', __import__(self.test_suite).__file__)
+    raise SystemExit(__import__('pytest').main([test_file]))
+test.run_tests = run_tests
+
+tests_require = ['pytest']
 
 classifiers = [
     'Development Status :: 3 - Alpha',
@@ -23,7 +31,8 @@ classifiers = [
 setup(
     name='pynpk',
     version='0.1.0',
-    py_modules=['pynpk'],
+    #py_modules=['npk'],
+    package=find_packages(),
     author='Park Hyunwoo',
     author_email='ez.amiryo' '@' 'gmail.com',
     maintainer='Park Hyunwoo',
@@ -32,4 +41,6 @@ setup(
     description='pynpk',
     install_requires=requirements,
     classifiers=classifiers,
+    test_suite='npktest',
+    tests_require=tests_require,
 )
