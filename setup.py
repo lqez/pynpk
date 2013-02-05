@@ -32,8 +32,7 @@ classifiers = [
 setup(
     name='pynpk',
     version='0.1.0',
-    packages=find_packages(),
-    include_package_data=True,
+    packages=['npk'],
     author='Park Hyunwoo',
     author_email='ez.amiryo' '@' 'gmail.com',
     maintainer='Park Hyunwoo',
