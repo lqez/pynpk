@@ -3,6 +3,7 @@ import os.path
 import re
 from setuptools import find_packages, setup
 from setuptools.command.test import test
+import sys
 
 try:
     with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
@@ -31,8 +32,8 @@ classifiers = [
 setup(
     name='pynpk',
     version='0.1.0',
-    package=find_packages(),
-    include_package_files=True,
+    packages=find_packages(),
+    include_package_data=True,
     author='Park Hyunwoo',
     author_email='ez.amiryo' '@' 'gmail.com',
     maintainer='Park Hyunwoo',

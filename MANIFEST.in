@@ -1,2 +1,4 @@
 include npk.h
+include npk.py
+include npktest.py
 include testres/*
