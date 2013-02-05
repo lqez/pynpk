@@ -1,5 +1,6 @@
-from .cffi import ffi, c
+from ._cffi import ffi, c
 from .error import *
+import collections
 
 
 class NpkEntity(collections.Iterator):
@@ -40,6 +41,3 @@ class NpkEntity(collections.Iterator):
 
     def __iter__(self):
         return self
-
-
-entity = NpkEntity

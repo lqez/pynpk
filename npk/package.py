@@ -1,6 +1,6 @@
-from .cffi import ffi, c
+from ._cffi import ffi, c
 from .error import *
-from .entity import NpkEntity
+from .entity import *
 
 
 class NpkPackage(object):
@@ -51,6 +51,3 @@ class NpkPackage(object):
 
     def __iter__(self):
         return self.first()
-
-
-package = NpkPackage
