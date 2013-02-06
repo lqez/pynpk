@@ -2,7 +2,7 @@ import os, sys
 from cffi import FFI
 
 if sys.platform == 'linux2':
-    dllname = 'libnpk.so'
+    dllname = 'npk'
 elif sys.platform == 'win32' or sys.platform == 'cygwin':
     dllname = 'libnpk.dll'
 else:
