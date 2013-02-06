@@ -10,4 +10,4 @@ make && make test && sudo make install
 cd ../..
 
 # test pynpk
-python setup.py test
+py.test npktest.py -v
