@@ -32,18 +32,9 @@ Usage
 
     import npk
     
-    # open package
-    pack = npk.package("foo.npk")
-
-    # find entity
-    entity = pack.get("bar.txt")
-
-    # write to file
-    open('bar.txt','w').write(entity.read())
-
-    # or just export it
-    pack.export("bar.txt")
-
-    # closing
-    pack.close()
+    pack = npk.package("foo.npk")               # open package 
+    entity = pack.get("bar.txt")                # find entity
+    open('bar.txt','w').write(entity.read())    # write to file
+    pack.export("bar.txt")                      # or just export it
+    pack.close()                                # closing 
 
