@@ -2,8 +2,11 @@
 
 # install libnpk
 git clone https://github.com/lqez/npk.git _libnpk
-cd _libnpk
-./build.sh && cd _build && sudo make install
+cd "_libnpk"
+mkdir "_build"
+cd "_build"
+cmake .. -DDEV_MODE=True -DBUILD_NPK=False
+make && make test && sudo make install
 cd ../..
 
 # test pynpk
