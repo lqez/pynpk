@@ -1,5 +1,6 @@
 pynpk - A python binding for npk
 ================================
+[![Build Status](https://travis-ci.org/lqez/pynpk.png?branch=master)](https://travis-ci.org/lqez/pynpk)
 
 - [npk](https://github.com/lqez/npk) is a simple package system for multiple files.
 - Open, create and manipulate npk packages via python.
