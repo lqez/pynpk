@@ -25,6 +25,9 @@ class NpkEntity(collections.Iterator):
         c.npk_entity_read(self.entity, buf)
         return ffi.string(buf)
 
+    def name(self):
+        return str(self)
+
     def export(self, filename, overwrite=True):
         return c.npk_entity_export(self.entity, ffi.new("char[]", filename), overwrite)
 
