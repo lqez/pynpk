@@ -10,4 +10,5 @@ make && make test && sudo make install
 cd ../..
 
 # test pynpk
+pip install pytest
 py.test npktest.py -v
