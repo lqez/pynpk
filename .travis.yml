@@ -1,1 +1,10 @@
-script: ./.travis_test.sh
+language: python
+python:
+  - "2.6"
+  - "2.7"
+install:
+  - "pip install -r requirements.ptxt --use-mirrors"
+  - "./travis_install.sh"
+script: python setup.py test
+
+
