@@ -19,7 +19,7 @@ Get libnpk
 
 ... or if you're on OS X and using Homebrew, then
 
-    // NOT supported, yet :(
+    $ brew tap lqez/npk
     $ brew install npk  
     
 Get pynpk
