@@ -36,3 +36,4 @@ nosetests.xml
 
 # for testing
 _libnpk
+test.npk

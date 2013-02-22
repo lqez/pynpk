@@ -1,19 +1,26 @@
 from pytest import raises
 import npk
-import os
 
 
 filename = "testres/sample.npk"
+sample = "testres/sample.txt"
 key = (98521, 16322, 7163, 992)
+
 
 class TestNpk(object):
     def test_open_package(self):
         pack = npk.package(filename, key)
         pack.close()
 
+    def test_create_package(self):
+        pack = npk.package()
+        pack.add(sample)
+        pack.save("test.npk")
+        pack.close()
+
     def test_open_package_fail(self):
         with raises(npk.FailToOpenPackage):
-            pack = npk.package(filename, reversed(key))
+            npk.package(filename, reversed(key))
 
     def test_iterate_entities(self):
         pack = npk.package(filename, key)
@@ -26,7 +33,7 @@ class TestNpk(object):
     def test_get_entity(self):
         pack = npk.package(filename, key)
         for entity in pack.all():
-            assert entity.read() == open("testres/sample.txt").read()
+            assert entity.read() == open(sample).read()
         pack.close()
 
     def test_export_entity(self, tmpdir):
@@ -34,7 +41,7 @@ class TestNpk(object):
         for entity in pack.all():
             export_filename = str(tmpdir.join(entity.name()))
             entity.export(export_filename)
-            assert open(export_filename).read() == open("testres/sample.txt").read()
+            assert open(export_filename).read() == open(sample).read()
         pack.close()
 
     def test_get_entity_fail(self):

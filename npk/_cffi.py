@@ -26,7 +26,7 @@ typedef unsigned long long              NPK_64BIT;
 typedef int                             NPK_TIME;
 typedef int                             bool;
 
-enum { 
+enum {
     NPK_ENTITY_NULL = 0,
     NPK_ENTITY_TEXTFILE = 1,
     NPK_ENTITY_ENCRYPT_XXTEA = 2,
@@ -69,6 +69,10 @@ NPK_RESULT  npk_package_remove_entity( NPK_PACKAGE package, NPK_ENTITY entity );
 NPK_RESULT  npk_package_detach_entity( NPK_PACKAGE package, NPK_ENTITY entity );
 NPK_RESULT  npk_package_remove_all_entity( NPK_PACKAGE package );
 NPK_RESULT  npk_package_detach_all_entity( NPK_PACKAGE package );
+
+NPK_ENTITY  _npk_entity_alloc();
+NPK_ENTITY  _npk_package_add_file( NPK_PACKAGE package, NPK_CSTR filename, NPK_CSTR entityname );
+NPK_PACKAGE _npk_package_alloc( NPK_TEAKEY teakey[4] );
 """
 
 ffi = FFI()
