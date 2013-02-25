@@ -13,13 +13,9 @@ except IOError:
 
 # use pytest instead
 def run_tests(self):
-    try:
-        pyc = re.compile(r'\.pyc|\$py\.class')
-        test_file = pyc.sub('.py', __import__(self.test_suite).__file__)
-        raise SystemExit(__import__('pytest').main([test_file]))
-    except Exception:
-        import traceback
-        traceback.print_exc()
+    pyc = re.compile(r'\.pyc|\$py\.class')
+    test_file = pyc.sub('.py', __import__(self.test_suite).__file__)
+    raise SystemExit(__import__('pytest').main([test_file]))
 
 test.run_tests = run_tests
 
