@@ -4,4 +4,6 @@ python:
   - 2.7
 install:
   - "./.travis_install.sh"
+before_script:
+  - export LD_LIBRARY_PATH=/usr/local/lib
 script: python setup.py test
